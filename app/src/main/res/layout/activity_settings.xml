@@ -3,271 +3,121 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EAEAEA"> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="#D3D3D3"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:layout_marginBottom="24dp">
-
-        <TextView
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="16dp"
-            android:text="&lt;"
-            android:textColor="#000000"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             android:text="Configurações"
             android:textColor="#000000"
             android:textSize="28sp"
             android:textStyle="bold" />
+
+        <!-- Card: Monitoramento -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp">
+            <RelativeLayout android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Monitoramento por sensor" android:textColor="#000000" android:textStyle="bold" android:layout_centerVertical="true"/>
+                <Switch android:id="@+id/switchMonitoramento" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Telefone do Responsável -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp">
+            <LinearLayout android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Telefone do Responsável" android:textColor="#000000" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                <EditText
+                    android:id="@+id/editTelefoneResponsavel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="(00) 00000-0000"
+                    android:inputType="phone"
+                    android:padding="12dp"
+                    android:background="?android:attr/editTextBackground"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Sensibilidade -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp">
+            <LinearLayout android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Sensibilidade" android:textColor="#000000" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                <RadioGroup android:id="@+id/groupSensibilidade" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rbBaixa" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="Baixa" android:button="@null" android:gravity="center" android:layout_margin="4dp" android:background="@drawable/selector_botao_verde" android:textColor="@drawable/selector_texto_botao"/>
+                    <RadioButton android:id="@+id/rbMedia" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="Média" android:button="@null" android:gravity="center" android:layout_margin="4dp" android:background="@drawable/selector_botao_verde" android:textColor="@drawable/selector_texto_botao"/>
+                    <RadioButton android:id="@+id/rbAlta" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="Alta" android:button="@null" android:gravity="center" android:layout_margin="4dp" android:background="@drawable/selector_botao_verde" android:textColor="@drawable/selector_texto_botao"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Temporizador -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp">
+            <LinearLayout android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Tempo do Temporizador" android:textColor="#000000" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                <RadioGroup android:id="@+id/groupTempo" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rb9s" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="9s" android:button="@null" android:gravity="center" android:layout_margin="4dp" android:background="@drawable/selector_botao_verde" android:textColor="@drawable/selector_texto_botao"/>
+                    <RadioButton android:id="@+id/rb10s" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="10s" android:button="@null" android:gravity="center" android:layout_margin="4dp" android:background="@drawable/selector_botao_verde" android:textColor="@drawable/selector_texto_botao"/>
+                    <RadioButton android:id="@+id/rb15s" android:layout_width="0dp" android:layout_weight="1" android:layout_height="50dp" android:text="15s" android:button="@null" android:gravity="center" android:layout_margin="4dp" android:background="@drawable/selector_botao_verde" android:textColor="@drawable/selector_texto_botao"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Permissões -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp">
+            <LinearLayout android:padding="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Permissões" android:textColor="#000000" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                <CheckBox android:id="@+id/cbLocalizacao" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Localização" android:buttonTint="#1B5E20" android:checked="true"/>
+                <CheckBox android:id="@+id/cbSensores" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sensores" android:buttonTint="#1B5E20" android:checked="true"/>
+                <CheckBox android:id="@+id/cbNotificacao" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notificação" android:buttonTint="#1B5E20" android:checked="true"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- BOTÃO DE SALVAR -->
+        <Button
+            android:id="@+id/btnSalvar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Salvar Configurações"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1B5E20"
+            app:cornerRadius="20dp"
+            android:layout_marginBottom="20dp"/>
+
     </LinearLayout>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Monitoramento por sensor"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <Switch
-                android:id="@+id/switch_sensor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:thumbTint="#FFFFFF"
-                android:trackTint="#196F3D" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sensibilidade"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <Button
-                    android:id="@+id/btn_sens_baixa"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#E0E0E0"
-                    android:text="Baixa"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    app:cornerRadius="24dp" />
-
-                <Button
-                    android:id="@+id/btn_sens_media"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#196F3D"
-                    android:text="Média"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:cornerRadius="24dp" />
-
-                <Button
-                    android:id="@+id/btn_sens_alta"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#E0E0E0"
-                    android:text="Alta"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    app:cornerRadius="24dp" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tempo do Temporizador"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <Button
-                    android:id="@+id/btn_time_9s"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#E0E0E0"
-                    android:text="9s"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    app:cornerRadius="24dp" />
-
-                <Button
-                    android:id="@+id/btn_time_10s"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#196F3D"
-                    android:text="10s"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:cornerRadius="24dp" />
-
-                <Button
-                    android:id="@+id/btn_time_15s"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="#E0E0E0"
-                    android:text="15s"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    app:cornerRadius="24dp" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="2dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:text="Permissões"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:id="@+id/check_gps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#196F3D"
-                android:checked="true"
-                android:text="Localização"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-            <CheckBox
-                android:id="@+id/check_sensors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:buttonTint="#196F3D"
-                android:checked="true"
-                android:text="Sensores"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-            <CheckBox
-                android:id="@+id/check_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:buttonTint="#196F3D"
-                android:checked="true"
-                android:text="Notificação"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-</LinearLayout>
 </ScrollView>
